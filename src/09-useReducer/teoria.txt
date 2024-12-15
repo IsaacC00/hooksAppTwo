@@ -1,0 +1,68 @@
+useReducer 
+debe ser 
+1 una funcion comun y corriente
+1.2 debe ser una funcion pura
+2 debe regresar un nuevo estado 
+(es decir que no muta el estado inical )
+3 debe recibir como maximo 2 argumentos
+(el valor inicial initialState y la accion)
+
+sintaxis inicial:
+literalmente es una funcion:
+const todoReducer = () => {
+
+}
+
+1.1 Funcion pura
+No debe tener efectos secundarios
+    es decir que mi reducer debe ser capaz de resolver todo lo que se pida
+    sin ncesidad de llamar a otras funciojes
+
+No debe realizar tareas asincronicas
+    lo hace mas facil ya que lo ejecuta en tiempo real 
+
+Debe retornar siempre un estado nuevo
+    es decir que el estado inical no puede cambiar 
+
+No debe llamar al localStorage o sessionStorage
+    en caso de quere llamar estas dos funciones se romperia con las 
+    reglas anteriores por que no sabemos el estado del dispositivo fisico
+    y se consideran funciones asincronas, esto romperia con todas las reglas
+
+No debe tener mas dde una acction en los parametros 
+
+representacion del useReducer
+
+tengo un arreglo con un objeto y una tarea
+const initialTodos= [{
+    id:1,
+    todo:'comprar pan',
+    done:false,
+}];
+
+el reduce recibe dos parametros 
+el estado inicla y la acion (en este caso regresa el estado)
+
+const todoReducer (state = initialTodos, action) => {
+    return state;
+}
+
+si nostros mandamos a imprimir esto en consola 
+lo que tendriamos es la lista de tareas 
+
+para que un reducer: 
+lo ideal seria tener toda la logica de mi aplicaion en un solo lugar
+en este caso en los reducer, puesto que si se disparan muchas acciones a la 
+vez en mi aplicaion seria ideal tener un reducer para poder saber que acciones 
+se estan ejecutando
+
+Funcionamiento
+basicamente tenemos nuestro estado inicial (nuestro arreglo de tareas)
+y lo presentamos en una vista para X usuario, en este caso deseamos
+agregar otra tarea, con nuestro reducer podemos tener las acciones
+necesarias para poder agregar, editar o eliminar dicha tarea, useReducer
+permite que estaa acciones sucedan en un orden secuencial y ordenado
+
+Nota:
+Redux funciona de la misma forma pero agregando 
+funciones asincronas  
